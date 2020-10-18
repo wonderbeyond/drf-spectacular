@@ -17,13 +17,9 @@ from rest_framework.settings import api_settings
 from rest_framework.utils.model_meta import get_field_info
 from rest_framework.views import APIView
 
-from drf_spectacular.extensions import (
-    OpenApiSerializerFieldExtension, OpenApiSerializerExtension
-)
-from drf_spectacular.settings import spectacular_settings
-from drf_spectacular.contrib.authentication import *  # noqa: F403, F401
-from drf_spectacular.contrib.fields import *  # noqa: F403, F401
-from drf_spectacular.contrib.serializers import *  # noqa: F403, F401
+from drf_spectacular.authentication import OpenApiAuthenticationExtension
+from drf_spectacular.contrib import *  # noqa: F403, F401
+from drf_spectacular.extensions import OpenApiSerializerExtension, OpenApiSerializerFieldExtension
 from drf_spectacular.plumbing import (
     ComponentRegistry, ResolvedComponent, anyisinstance, append_meta, build_array_type,
     build_basic_type, build_choice_field, build_object_type, build_parameter_type, error,
