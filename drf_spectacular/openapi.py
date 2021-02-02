@@ -735,6 +735,8 @@ class AutoSchema(ViewInspector):
             meta['default'] = default
         if field.label and not is_trivial_string_variation(field.label, field.field_name):
             meta['title'] = str(field.label)
+        if field._kwargs.get('label'):
+            meta['title'] = field._kwargs['label']
         if field.help_text:
             meta['description'] = str(field.help_text)
         return meta
