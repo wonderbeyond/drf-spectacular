@@ -104,7 +104,7 @@ class AutoSchema(ViewInspector):
         if is_basic_type(serializer):
             return False
         if hasattr(self.view, 'detail'):
-            return not self.view.detail
+            return not self.view.detail and self.method.lower() == 'get'
         if hasattr(self.view, 'action'):
             return self.view.action == 'list'
         # list responses are "usually" only returned by GET
